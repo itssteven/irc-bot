@@ -10,6 +10,7 @@ return array(
     'max_reconnects' => 1,
     'log_file',
     'commands' => array(
+		'Command\F'      => array(), // Random Fapper
         'Command\Y'      => array(), // YouTube
         'Command\Imdb'	 => array(), // IMDb Searcher
         'Command\W'		 => array(), // Wikipedia
@@ -25,6 +26,7 @@ return array(
     ),
     'listeners' => array(
 #        'Listener\YouTube' 		=> array(),
+		'Listener\Fapper' 		=> array(),
         'Listener\Reddit' 		=> array(),
         'Listener\DailyMotion' 	=> array(),
         'Listener\Vimeo'		=> array(),
