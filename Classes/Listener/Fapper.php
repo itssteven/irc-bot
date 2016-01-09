@@ -53,6 +53,6 @@ class Fapper extends \Library\IRC\Listener\Base {
      * @return array
      */
     public function getKeywords() {
-        return array( 'ffs', 'zeusey', '2' );
+        return array( 'ffs', 'zeusey', 'stumo' );
     }
 }
