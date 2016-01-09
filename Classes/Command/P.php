@@ -28,7 +28,7 @@ class P extends \Library\IRC\Command\Base {
         if( empty($this->arguments[0] ) )
     		return;
     	
-		$ret = google( 'site:pornhub.com OR site:xhamster.com ' . implode( ' ', $this->arguments ) );
+		$ret = google( 'site:xhamster.com/movies ' . implode( ' ', $this->arguments ) );
 		
 		if( $ret === FALSE ) {
 			echo "google() error\n";
