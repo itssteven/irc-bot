@@ -167,7 +167,7 @@
 		$url = urldecode( $url );
 		$url = utf8_urldecode( $url );
 			
-		return array( 'title' => $title, 'url' => $url );
+		return array( 'title' => $title, 'url' => url_encode( $url ) );
 	}
 	
 	

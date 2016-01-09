@@ -20,9 +20,9 @@ class Fapper extends \Library\IRC\Listener\Base {
 		$json = json_decode( $json, true );
 		$random_fap = rand() % count( $json );
 		$title = $json[$random_fap]['keyword'];
+		
 				
 		$this->say( "$title", $args[2] );
-		
     }
 
     private function getCommandsName( ) {
