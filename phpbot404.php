@@ -167,7 +167,7 @@
 		$url = urldecode( $url );
 		$url = utf8_urldecode( $url );
 		
-		$url = urlencode( $url );		
+		$url = str_replace( ' ', '%20', $url );	
 		return array( 'title' => $title, 'url' => $url );
 	}
 	
