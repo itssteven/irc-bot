@@ -10,6 +10,7 @@ return array(
     'max_reconnects' => 1,
     'log_file',
     'commands' => array(
+		'Command\P'      => array(), // porn suche
 		'Command\F'      => array(), // Random Fapper
         'Command\Y'      => array(), // YouTube
         'Command\Imdb'	 => array(), // IMDb Searcher
