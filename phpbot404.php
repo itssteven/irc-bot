@@ -145,16 +145,18 @@
 		$results = $dom->getElementById('normal-results');
 		$title = '';
 		$url = '';
-		foreach( $results->getElementsByTagName('li') as $li ) {
-			foreach( $li->getElementsByTagName('a') as $a ) {
-				$title = $a->nodeValue;
-				$url = $a->getAttribute('href');
-				
-				if( ! strstr( $url, "/ads/" ) ) {
-					break;
+		if( isset( $results )  {
+			foreach( $results->getElementsByTagName('li') as $li ) {
+				foreach( $li->getElementsByTagName('a') as $a ) {
+					$title = $a->nodeValue;
+					$url = $a->getAttribute('href');
+					
+					if( ! strstr( $url, "/ads/" ) ) {
+						break;
+					}
 				}
+				break;
 			}
-			break;
 		}
 		if( empty( $title ) || empty( $url ) ) return FALSE;
 		
