@@ -145,7 +145,7 @@
 		$results = $dom->getElementById('normal-results');
 		$title = '';
 		$url = '';
-		if( isset( $results )  {
+		if( isset( $results ) ) {
 			foreach( $results->getElementsByTagName('li') as $li ) {
 				foreach( $li->getElementsByTagName('a') as $a ) {
 					$title = $a->nodeValue;
