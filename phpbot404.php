@@ -151,7 +151,7 @@
 					$title = $a->nodeValue;
 					$url = $a->getAttribute('href');
 					
-					if( ! strstr( $url, "/ads/" ) ) {
+					if( FALSE !== strpos( $url, "/ads/" ) ) {
 						break;
 					}
 				}
