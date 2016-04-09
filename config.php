@@ -5,7 +5,7 @@ return array(
     'name'     => 'bojs',
     'nick'     => 'bojs',
     'channels' => array(
-        '#bojs',
+        '#bojs2',
     ),
     'max_reconnects' => 1,
     'log_file',
@@ -26,7 +26,7 @@ return array(
     //    'Command\Twitter' => array(),
     ),
     'listeners' => array(
-#        'Listener\YouTube' 		=> array(),
+        'Listener\YouTube' 		=> array(),
 		'Listener\Fapper' 		=> array(),
         'Listener\Reddit' 		=> array(),
         'Listener\DailyMotion' 	=> array(),

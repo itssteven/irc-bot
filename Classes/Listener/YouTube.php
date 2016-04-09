@@ -15,7 +15,7 @@ class YouTube extends \Library\IRC\Listener\Base {
      */
     public function execute( $data ) {
         $args = $this->getArguments( $data );
-        
+        echo "hello from youtube";
         $title = null;
         
         // array_slice = Skip over host, channel, msgtype
@@ -49,14 +49,18 @@ class YouTube extends \Library\IRC\Listener\Base {
 		echo $youtube_video_id, PHP_EOL;
 		echo urlencode( $youtube_video_id ), PHP_EOL;
 		
-        $ret = google( $youtube_video_id );		
-		if( $ret === FALSE ) {
-			echo "google() error\n";
+		if( $ret_json = file_get_contents( 'https://noembed.com/embed?url=' . $youtube_video_id ) ) {
+			
+			
+			$ret_json_decoded = json_decode( $ret_json, true );
+			
+			echo $ret_json_decoded, PHP_EOL, PHP_EOL;
+			
+			$title = $ret_json_decoded['title'];
+			$url = $ret_json_decoded['url'];
+			
+			$this->say( "1,0You0,4Tube $title - $url", $args[2] );
 		}
-		else {
-			$ret['title'] = $title = substr( $title, 0, stripos( $title, ' - YouTube' ) );
-	        $this->say( "1,0You0,4Tube {$ret['title']} - {$ret['url']}", $args[2]  );
-	    }
     }
 
     private function getCommandsName() {

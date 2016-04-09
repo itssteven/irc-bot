@@ -45,8 +45,8 @@ class Titles extends \Library\IRC\Listener\Base {
 			$title = '';			
 			
 			if( strstr( $url, 'reddit.com' 		) ||
-//				strstr( $url, 'youtu.be' 		) ||
-//				strstr( $url, 'youtube.com' 	) ||
+				strstr( $url, 'youtu.be' 		) ||
+				strstr( $url, 'youtube.com' 	) ||
 				strstr( $url, 'imgur.com' 		) ||
 				strstr( $url, 'imdb.com' 		) ||
 				strstr( $url, 'instagr.am' 		) ||
@@ -55,7 +55,7 @@ class Titles extends \Library\IRC\Listener\Base {
 				strstr( $url, 'vimeo.com' 		) ||
 				strstr( $url, 'instagram.com' 	) ||
 				strstr( $url, 'gfycat.com' 		) )
-				break; // let the other listeners handle it, we dont want multiple outputs per input
+				return; // let the other listeners handle it, we dont want multiple outputs per input
 			
 			// Download linked webpage
 			$html = file_get_contents( $url );
@@ -74,6 +74,8 @@ class Titles extends \Library\IRC\Listener\Base {
 				$titles .= "$title";
 			}
 		}
+		
+		
 
 		echo "Outputting title: $titles\n";
 		if( ! empty( $titles ) ) {
