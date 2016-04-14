@@ -59,7 +59,7 @@ class YouTube extends \Library\IRC\Listener\Base {
 			$title = $ret_json_decoded['title'];
 			$url = $ret_json_decoded['url'];
 			
-			$this->say( "1,0You0,4Tube $title - $url", $args[2] );
+			$this->say( "1,0You0,4Tube $title", $args[2] );
 		}
     }
 
