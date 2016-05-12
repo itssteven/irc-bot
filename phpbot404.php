@@ -134,9 +134,11 @@
 		echo "https://search.disconnect.me/searchTerms/search?query=" . urlencode( $query ), PHP_EOL;
 		$resp = curl_exec($curl);
 		$errno = curl_errno( $curl );
+		$error = curl_error( $curl );
 		curl_close($curl);
 		
 		if( $errno !== 0 ) {
+			echo "ERRORNO = $errno ($error)\n\n";
 			return FALSE;
 		}
 
