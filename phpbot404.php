@@ -86,7 +86,7 @@
 		return $urls[0];
 	}
 	
-	
+	/*
 	function google( $query ) {
 		$query_string = urlencode( $query );
         $query_url = 'https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' . $query_string;
@@ -115,9 +115,9 @@
 		$title = html_entity_decode( $title, ENT_QUOTES );
 		
 		return array( 'title' => $title, 'url' => $url );
-	}
+	}* */
 	
-	/*
+	
 	function google( $query ) {
 		$curl = curl_init();
 		curl_setopt_array( 
@@ -172,7 +172,7 @@
 		$url = str_replace( ' ', '%20', $url );	
 		return array( 'title' => $title, 'url' => $url );
 	}
-	* */
+	
 	
 	
 
