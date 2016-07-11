@@ -178,7 +178,6 @@
 	
 //	/html/body/div[2]/div[2]/div[4]/div/div/div[2]/div[2]/div[1]
 	function google( $query ) {
-		$query = 'test';
 		$query_url = 'https://duckduckgo.com/?q=' . $query;
 
 
