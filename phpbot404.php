@@ -117,7 +117,7 @@
 		return array( 'title' => $title, 'url' => $url );
 	}* */
 	
-	
+	/* // disconnect
 	function google( $query ) {
 		$curl = curl_init();
 		curl_setopt_array( 
@@ -174,9 +174,55 @@
 		$url = str_replace( ' ', '%20', $url );	
 		return array( 'title' => $title, 'url' => $url );
 	}
+	*/
 	
-	
-	
+//	/html/body/div[2]/div[2]/div[4]/div/div/div[2]/div[2]/div[1]
+	function google( $query ) {
+		$query = 'test';
+		$query_url = 'https://duckduckgo.com/?q=' . $query;
+
+
+		$curl = curl_init();
+		curl_setopt_array( 
+			$curl, 
+			array(
+				CURLOPT_TIMEOUT => 5,
+				CURLOPT_RETURNTRANSFER => 1,
+				CURLOPT_SSL_VERIFYPEER => false,
+				CURLOPT_USERAGENT => "Mozilla/5.0 (Windows; U; Windows NT 5.1; rv:1.7.3) Gecko/20041001 Firefox/0.10.1",
+				CURLOPT_FOLLOWLOCATION => true,
+				CURLOPT_URL => 'https://duckduckgo.com/?q=' . urlencode( $query )
+			)
+		);
+		echo "https://duckduckgo.com/?q=" . urlencode( $query ), PHP_EOL;
+		$resp = curl_exec($curl);
+		$errno = curl_errno( $curl );
+		$error = curl_error( $curl );
+		curl_close($curl);
+
+		if( $errno !== 0 ) {
+			echo "ERRORNO = $errno ($error)\n\n";
+			return FALSE;
+		}
+
+
+		$doc = new DOMDocument();
+		$doc->preserveWhiteSpace = false;
+		$doc->loadHTML( $resp );
+		$xpath = new DOMXpath($doc);
+
+		$elements = $doc->getElementsByTagName('a')->item(0);
+		$title = $elements->textContent;
+		$url =  $elements->getAttribute('href');
+		
+		// Make that shit decent for irc text
+		$title = str_replace( '<b>', '', $title );
+		$title = str_replace( '</b>', '', $title );	        
+		$title = htmlspecialchars_decode( $title );
+		$title = html_entity_decode( $title, ENT_QUOTES );
+
+		return array( 'title' => $title, 'url' => $url );
+	}
 
     // Connect to the server.
     $bot->connectToServer();

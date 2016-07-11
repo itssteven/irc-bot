@@ -33,7 +33,7 @@ class Imdb extends \Library\IRC\Listener\Base {
 				        
 				$ret = google( $arg );
 				if( $ret === FALSE ) {
-					echo '('."imdb $query_string".') returned false...', PHP_EOL;
+					echo '('."imdb $arg".') returned false...', PHP_EOL;
 					return;
 				}
 				$url = $ret['url'];				
