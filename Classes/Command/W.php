@@ -30,7 +30,7 @@ class W extends \Library\IRC\Command\Base {
     		
     	$query_string = urlencode( implode( ' ', $this->arguments ) );
     	
-    	$ret = google( "wikipedia $query_string" );
+    	$ret = google( "site:wikipedia.org $query_string" );
 		if( $ret === FALSE ) {
 			echo '('."wikipedia $query_string".') returned false...', PHP_EOL;
 			return;

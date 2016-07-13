@@ -30,7 +30,7 @@ class Imdb extends \Library\IRC\Command\Base {
 		
 		
 		$query_string = urlencode( implode( ' ', $this->arguments ) );
-		$ret = google( "imdb $query_string" );
+		$ret = google( "site:imdb.com $query_string" );
 		
 		if( $ret === FALSE ) {
 			echo '('."imdb $query_string".') returned false...', PHP_EOL;
