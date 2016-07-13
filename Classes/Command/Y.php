@@ -29,7 +29,7 @@ class Y extends \Library\IRC\Command\Base {
     		return;
     	
         $query_string = implode( ' ', $this->arguments );
-		$ret = google( 'youtube.com ' . $query_string );
+		$ret = google( 'site:youtube.com ' . $query_string );
 		
 		if( $ret !== FALSE ) {
 			echo $ret['url'], PHP_EOL;
