@@ -203,6 +203,8 @@
 			echo "ERRORNO = $errno ($error)\n\n";
 			return FALSE;
 		}
+		
+		file_put_contents( 'duck.html', $resp );
 
 
 		$doc = new DOMDocument();
@@ -211,6 +213,10 @@
 		$xpath = new DOMXpath($doc);
 
 		$elements = $doc->getElementsByTagName('a')->item(0);
+		if( is_null( $elements ) ) {
+			echo "elements is false yo";
+			return FALSE;
+		}
 		$title = $elements->textContent;
 		$url =  $elements->getAttribute('href');
 		
