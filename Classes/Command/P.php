@@ -29,7 +29,7 @@ class P extends \Library\IRC\Command\Base {
     		return;
     	
     	$query_string = implode( ' ', $this->arguments );
-		$ret = google( 'site:xhamster.com/movies ' . $query_string );
+		$ret = google( 'site:pornhub.com ' . $query_string );
 		
 		if( $ret === FALSE ) {
 			echo "google() error\n";
