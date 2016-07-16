@@ -212,10 +212,17 @@
 		$doc->loadHTML( $resp );
 		$xpath = new DOMXpath($doc);
 
-		$elements = $doc->getElementsByTagName('a')->item(0);
-		if( is_null( $elements ) ) {
-			echo "elements is false yo";
-			return FALSE;
+		for( $i = 0; $i < 5; $i++ ) {
+			$elements = $doc->getElementsByTagName('a')->item($i);
+			if( is_null( $elements ) ) {
+				echo "elements is false yo";
+				continue;
+			}
+			$url = $elements->getAttribute('href');
+			if( ! strstr( $url, 'r.search.yahoo.com' ) &&
+				! strstr( $url, '/lite/?q=' ) ) {
+				break;
+			}
 		}
 		$title = $elements->textContent;
 		$url =  $elements->getAttribute('href');
