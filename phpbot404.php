@@ -215,7 +215,6 @@
 		for( $i = 0; $i < 5; $i++ ) {
 			$elements = $doc->getElementsByTagName('a')->item($i);
 			if( is_null( $elements ) ) {
-				echo "elements is false yo";
 				continue;
 			}
 			$url = $elements->getAttribute('href');
@@ -223,6 +222,10 @@
 				! strstr( $url, '/lite/?q=' ) ) {
 				break;
 			}
+		}
+		if( is_null( $elements ) ) {
+			echo "elements is false yo";
+			return FALSE;
 		}
 		$title = $elements->textContent;
 		$url =  $elements->getAttribute('href');
