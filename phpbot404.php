@@ -218,7 +218,7 @@
 				continue;
 			}
 			$url = $elements->getAttribute('href');
-			if( ! strstr( $url, 'r.search.yahoo.com' ) &&
+			if( ! strstr( $url, 'yahoo' ) &&
 				! strstr( $url, '/lite/?q=' ) ) {
 				break;
 			}
