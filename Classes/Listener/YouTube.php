@@ -49,6 +49,12 @@ class YouTube extends \Library\IRC\Listener\Base {
 		echo $youtube_video_id, PHP_EOL;
 		echo urlencode( $youtube_video_id ), PHP_EOL;
 		
+		$url_parsed = parse_url($youtube_video_id);
+		parse_str( $url_parsed['query'], $query_parsed );
+
+		$youtube_video_id = $url_parsed['scheme'] . '://' . $url_parsed['host'] . $url_parsed['path'] . '?v=' . $query_parsed['v'];
+
+		
 		if( $ret_json = file_get_contents( 'https://noembed.com/embed?url=' . $youtube_video_id ) ) {
 			
 			
