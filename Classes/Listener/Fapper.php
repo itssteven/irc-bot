@@ -17,7 +17,7 @@ class Fapper extends \Library\IRC\Listener\Base {
         $args = $this->getArguments( $data );
         
         
-        if( rand() % 2 == 0 )
+        if( rand() % 2 == 0 ) {
 			$url = 'http://www.pornmd.com/getliveterms?orientation=s&country=us';
 		}
 		else {
