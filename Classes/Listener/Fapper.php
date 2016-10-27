@@ -17,6 +17,7 @@ class Fapper extends \Library\IRC\Listener\Base {
         $args = $this->getArguments( $data );
         
         $json = file_get_contents( 'http://www.pornmd.com/getliveterms?orientation=s' );
+        file_put_contents( 'fapper.html', $json );
 		$json = json_decode( $json, true );
 		$random_fap = rand() % count( $json );
 		$title = $json[$random_fap]['keyword'];

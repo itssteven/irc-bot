@@ -51,7 +51,6 @@ class YouTube extends \Library\IRC\Listener\Base {
 		
 		$url_parsed = parse_url($youtube_video_id);
 		parse_str( $url_parsed['query'], $query_parsed );
-
 		$youtube_video_id = $url_parsed['scheme'] . '://' . $url_parsed['host'] . $url_parsed['path'] . '?v=' . $query_parsed['v'];
 
 		
