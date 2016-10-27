@@ -16,7 +16,20 @@ class Fapper extends \Library\IRC\Listener\Base {
     public function execute($data) {
         $args = $this->getArguments( $data );
         
-        $json = file_get_contents( 'http://www.pornmd.com/getliveterms?orientation=s' );
+        
+        if( rand() % 2 == 0 )
+			$url = 'http://www.pornmd.com/getliveterms?orientation=s&country=us';
+		}
+		else {
+			$url = 'http://www.pornmd.com/getliveterms?orientation=g&country=us'
+		}
+        
+        $user = getUserNickName($data) 
+        if( $user === 'jetson' ) {
+			$url = 'http://www.pornmd.com/getliveterms?orientation=t&country=us'
+		}
+        
+        $json = file_get_contents( $url );        
         file_put_contents( 'fapper.html', $json );
 		$json = json_decode( $json, true );
 		$random_fap = rand() % count( $json );
