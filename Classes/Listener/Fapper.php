@@ -24,7 +24,7 @@ class Fapper extends \Library\IRC\Listener\Base {
 			$url = 'http://www.pornmd.com/getliveterms?orientation=g&country=us';
 		}
         
-        $user = getUserNickName($data) 
+        $user = getUserNickName($data);
         if( $user === 'jetson' ) {
 			$url = 'http://www.pornmd.com/getliveterms?orientation=t&country=us';
 		}
