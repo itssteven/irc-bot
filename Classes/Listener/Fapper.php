@@ -21,12 +21,12 @@ class Fapper extends \Library\IRC\Listener\Base {
 			$url = 'http://www.pornmd.com/getliveterms?orientation=s&country=us';
 		}
 		else {
-			$url = 'http://www.pornmd.com/getliveterms?orientation=g&country=us'
+			$url = 'http://www.pornmd.com/getliveterms?orientation=g&country=us';
 		}
         
         $user = getUserNickName($data) 
         if( $user === 'jetson' ) {
-			$url = 'http://www.pornmd.com/getliveterms?orientation=t&country=us'
+			$url = 'http://www.pornmd.com/getliveterms?orientation=t&country=us';
 		}
         
         $json = file_get_contents( $url );        
