@@ -86,6 +86,14 @@
 		return $urls[0];
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	/*
 	function google( $query ) {
 		$query_string = urlencode( $query );

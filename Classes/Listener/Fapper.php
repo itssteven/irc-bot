@@ -17,20 +17,22 @@ class Fapper extends \Library\IRC\Listener\Base {
         $args = $this->getArguments( $data );
         
         
-        if( rand() % 2 == 0 ) {
-			$url = 'http://www.pornmd.com/getliveterms?orientation=scountry=us';
-		}
-		else {
-			$url = 'http://www.pornmd.com/getliveterms?orientation=gcountry=us';
-		}
+        /*
+         * build up huge text db
+         * no duplicates
+         * remove once used
+         * 
+         * 
+         * request each !stumo, add to db if 
+         */
         
-        $user = $this->getUserNickName($data);
-        if( $user === 'jetson' ) {
-			$url = 'http://www.pornmd.com/getliveterms?orientation=tcountry=us';
-		}
         
-        $json = file_get_contents( $url );        
-        file_put_contents( 'fapper.html', $json );
+        
+		$json = file_get_contents( 'http://www.pornmd.com/getliveterms?country=us' );
+		$json = json_decode( $json, true );
+
+        
+        $json = file_get_contents( 'pornwords.json' );
 		$json = json_decode( $json, true );
 		$random_fap = rand() % count( $json );
 		$title = $json[$random_fap]['keyword'];

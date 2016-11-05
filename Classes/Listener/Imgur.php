@@ -77,6 +77,7 @@ class Imgur extends \Library\IRC\Listener\Base {
         // Give the html5 link if we can 
         $gifv = '';
         if( strcmp( substr( $url, -5 ), '.gifv' ) &&
+			strcmp( substr( $url, -5 ), '.mp4' ) &&
 			strcmp( substr( $url, -5 ), '.webm' ) ) {
 			if( isset( $decoded['data']['gifv'] ) ) {
 				if( ! empty( $decoded['data']['gifv'] ) ) {
