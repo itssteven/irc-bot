@@ -5,7 +5,7 @@ return array(
     'name'     => 'bojs',
     'nick'     => 'bojs',
     'channels' => array(
-        '#bojs2',
+        '#bojs',
     ),
     'max_reconnects' => 1,
     'log_file',
