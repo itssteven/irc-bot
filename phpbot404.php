@@ -214,7 +214,9 @@
 		
 //		file_put_contents( 'duck.html', $resp );
 
-
+		$doc = new DOMDocument();
+		$doc->preserveWhiteSpace = false;
+		$doc->loadHTML( $resp );
 		
 		foreach( $elements = $doc->getElementsByTagName('a') as $item ) {
 			if( strstr( $item->getAttribute('href'), "yahoo" ) ) {
