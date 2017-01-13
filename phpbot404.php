@@ -212,39 +212,31 @@
 			return FALSE;
 		}
 		
-		file_put_contents( 'duck.html', $resp );
+//		file_put_contents( 'duck.html', $resp );
 
 
-		$doc = new DOMDocument();
-		$doc->preserveWhiteSpace = false;
-		$doc->loadHTML( $resp );
-		$xpath = new DOMXpath($doc);
-
-		for( $i = 0; $i < 5; $i++ ) {
-			$elements = $doc->getElementsByTagName('a')->item($i);
-			if( is_null( $elements ) ) {
+		
+		foreach( $elements = $doc->getElementsByTagName('a') as $item ) {
+			if( strstr( $item->getAttribute('href'), "yahoo" ) ) {
 				continue;
 			}
-			$url = $elements->getAttribute('href');
-			if( ! strstr( $url, 'yahoo' ) &&
-				! strstr( $url, '/lite/?q=' ) ) {
-				break;
-			}
-		}
-		if( is_null( $elements ) ) {
-			echo "elements is false yo";
-			return FALSE;
-		}
-		$title = $elements->textContent;
-		$url =  $elements->getAttribute('href');
-		
-		// Make that shit decent for irc text
-		$title = str_replace( '<b>', '', $title );
-		$title = str_replace( '</b>', '', $title );	        
-		$title = htmlspecialchars_decode( $title );
-		$title = html_entity_decode( $title, ENT_QUOTES );
-
-		return array( 'title' => $title, 'url' => $url );
+			
+			$title = $item->nodeValue;
+			$url = $item->getAttribute('href');
+			
+			$title = str_replace( '<b>', '', $title );
+			$title = str_replace( '</b>', '', $title );	        
+			$title = htmlspecialchars_decode( $title );
+			$title = html_entity_decode( $title, ENT_QUOTES );
+			
+			$url = substr( $url, strlen( '/l/?kh=-1&uddg=' ) );
+			$url = urldecode( $url );
+			
+			echo $title, PHP_EOL;
+			echo $url, PHP_EOL;
+			
+			return array( 'title' => $title, 'url' => $url );
+		}		
 	}
 
     // Connect to the server.
